@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_cache import Cache
 
 from scraper import FILMS, PEOPLE
@@ -19,7 +19,7 @@ def present_movies():
     for movie in movies:
         get_cast_for_movie(movie, people)
 
-    return json.dumps(movies)
+    return render_template('movies.html', movies=movies)
 
 
 if __name__ == '__main__':

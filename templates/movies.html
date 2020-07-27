@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div.movie {
+            text-indent: 2%;
+        }
+
+        div.cast {
+            text-indent: 5%;
+        }
+    </style>
+    <title>Ghibli Studio movies list</title>
+</head>
+<body>
+{% for movie in movies %}
+<div class="movie">
+    <h2>{{ movie.title }}</h2>
+    <div class="cast">
+    {% if movie.cast|length > 0 %}
+        {% for person in movie.cast %}
+            <h5>{{ person.name }}</h5>
+        {% endfor %}
+    {% else %}
+        <h5>Movie doesn't have cast</h5>
+    {% endif %}
+    </div>
+</div>
+{% endfor %}
+</body>
+</html>
