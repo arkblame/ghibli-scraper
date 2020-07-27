@@ -25,3 +25,8 @@ You would need to install *Docker*
 
 After that run `start-docker.sh` to start server. It will be available at: 
 http://localhost:8000/movies
+
+### tests
+1. Install python 3.7 or higher
+2. Install requirements by running `pip install -r requirements.txt`
+3. Run script `run_tests.sh`
