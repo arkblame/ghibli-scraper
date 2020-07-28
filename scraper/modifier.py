@@ -7,8 +7,6 @@ def modify_person_movies_list(all_people: List[dict]) -> List[dict]:
         to contains only movie ID.
 
         :param all_people: contains list of all people
-
-        :return: list of all people with modified "films" field.
     """
     if not isinstance(all_people, list):
         raise TypeError("Variable is not a list.")
