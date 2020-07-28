@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask_cache import Cache
+from flask_caching import Cache
 
 from scraper import FILMS, PEOPLE
 from scraper.getter import get_cast_for_movie, get_all_data
