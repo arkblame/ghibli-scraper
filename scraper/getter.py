@@ -3,7 +3,7 @@ import logging
 from typing import List, Optional
 from urllib.request import urlopen
 
-from scraper import GHIBLI_URL, SUPPORTED_DATA_TYPES, PEOPLE, FILMS
+from scraper import GHIBLI_URL, SUPPORTED_DATA_TYPES, PEOPLE
 from scraper.modifier import modify_person_movies_list
 
 logger = logging.getLogger("Ghibli-scrapper")
@@ -20,7 +20,8 @@ def get_all_data(data_type: str) -> List[dict]:
     logger.info("Getting data from server.")
     if data_type not in SUPPORTED_DATA_TYPES:
         raise ValueError(
-            f"Not supported data type. Data type should be one of: {SUPPORTED_DATA_TYPES}")
+            f"Not supported data type."
+            f"Data type should be one of: {SUPPORTED_DATA_TYPES}")
 
     url = "/".join([GHIBLI_URL, data_type, "?limit=250"])
     response = urlopen(url).read().decode("utf-8")
@@ -30,7 +31,9 @@ def get_all_data(data_type: str) -> List[dict]:
     return data
 
 
-def get_cast_for_movie(movie_data: dict, all_people: Optional[List[dict]]) -> None:
+def get_cast_for_movie(
+        movie_data: dict,
+        all_people: Optional[List[dict]]) -> None:
     """
         Method is responsible for getting full cast for given movie.
 

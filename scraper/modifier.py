@@ -3,7 +3,8 @@ from typing import List
 
 def modify_person_movies_list(all_people: List[dict]) -> List[dict]:
     """
-        Method is responsible to modify persons movie list to contains only movie ID.
+        Method is responsible to modify persons movie list
+        to contains only movie ID.
 
         :param all_people: contains list of all people
 
@@ -16,5 +17,6 @@ def modify_person_movies_list(all_people: List[dict]) -> List[dict]:
             raise TypeError("Details about the person are not dictionary")
         if not person.get("films"):
             raise TypeError("Dictionary has unsupported structure.")
-        movie_list = [movie_id.split("/")[-1] for movie_id in person.get("films")]
+        movie_list = [movie_id.split("/")[-1]
+                      for movie_id in person.get("films")]
         person["films"] = movie_list
